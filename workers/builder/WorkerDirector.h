@@ -1,25 +1,29 @@
 #pragma once
+#include <vector>
 #include "WorkerBuilder.h"
 #include "../worker/Worker.h"
 #include "WorkerHourBuilder.h"
 #include "WorkerMonthBuilder.h"
 
+using namespace std;
+
+typedef shared_ptr<WorkerBuilder> p_WorkerBuilder;
+
+/*
+ * Director for Builder pattern.
+ * Creates new worker depending on type
+ */
 class WorkerDirector {
     private:
-        WorkerBuilder* workerBuilder;
+        vector<p_WorkerBuilder> builders;
+        p_WorkerBuilder workerBuilder;
     public:
-        WorkerDirector() : workerBuilder(NULL) { }
-        Worker* getWorker () { return this->workerBuilder->getWorker(); }
-        void setWorkerBuilder(WorkerBuilder* wb) { this->workerBuilder = wb; }
-        void constructWorker(istream &in) {
-            string workerType;
-            in >> workerType;
-            if (workerType == "H") {
-                this->setWorkerBuilder(new WorkerHourBuilder());
-            }
-            else if (workerType == "M") {
-                this->setWorkerBuilder(new WorkerMonthBuilder());
-            }
-            this->workerBuilder->buildNewWorker(in);
-        }
+        WorkerDirector                  ();
+        ~WorkerDirector                 ();
+        shared_ptr<Worker> getWorker    ();
+        void setWorkerBuilder           (p_WorkerBuilder workerBuilder);
+        /*
+         * Reads new worker from input stream
+         */
+        void constructWorker            (istream &in);
 };

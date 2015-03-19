@@ -3,12 +3,21 @@
 #include "../utils/Decimal.h"
 #include <string>
 
+/*
+ * Abstract Worker class
+ */
 class Worker {
     protected:
         int     id;
         string  name;
         Decimal salary;
+        /*
+         * Should we read and write worker type?
+         */
         bool    typeIO;
+        /*
+         * Should we write raw salary (getSalary) or month salary?
+         */
         bool    rawSalaryIO;
     public:
         Worker ();
@@ -27,7 +36,13 @@ class Worker {
         void    setTypeIO               (bool typeIO);
         void    setRawSalaryIO          (bool rawSalaryIO);
 
+        /*
+         * Calculate salary for month
+         */
         virtual Decimal getMonthSalary  () const  = 0;
+        /*
+         * Get worker type to differ each worker when writing/reading them
+         */
         virtual string  getWorkerType   () const  = 0;
 };
 

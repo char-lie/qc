@@ -1,0 +1,5 @@
+H 1 John 1
+M 2 Markus 200
+M 3 Jane 400
+H 4 Peter 6
+H 5 Smith 3.5

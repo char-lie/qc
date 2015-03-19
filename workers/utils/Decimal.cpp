@@ -103,7 +103,6 @@ Decimal Decimal::operator/(int b) {
 }
 
 ostream& operator<<(ostream &out, const Decimal &decimal) {
-    int fractional = 0;
     int integral   = 0;
     int multiplier = 1;
     for (int i = 0; i < decimal.getExponent(); i++) {
@@ -123,7 +122,6 @@ istream& operator>>(istream &in, Decimal &decimal) {
     char* input             = new char[120];
     int exponent            = 0;
     int mantissa            = 0;
-    int currentCharNumber   = 0;
     in >> input;
     auto getNewMantissa = [&mantissa](char tmp) {
                                 return mantissa * 10 + tmp - '0';

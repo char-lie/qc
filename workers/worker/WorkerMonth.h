@@ -1,6 +1,9 @@
 #pragma once
 #include "Worker.h"
 
+/*
+ * Worker with monthly wage
+ */
 class WorkerMonth: public Worker {
     public:
         WorkerMonth ();

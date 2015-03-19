@@ -1,12 +1,21 @@
 #pragma once
+#include <memory>
 #include "../worker/Worker.h"
 
+/*
+ * Abstract builder for Builder pattern
+ */
 class WorkerBuilder {
     protected:
-        Worker* worker;
+        shared_ptr<Worker> worker;
     public:
-        WorkerBuilder() { this->worker = NULL; }
-        virtual ~WorkerBuilder() { }
-        Worker* getWorker() { return this->worker; }
-        virtual void buildNewWorker(istream &in) = 0;
+        WorkerBuilder                   ();
+        ~WorkerBuilder                  ();
+        shared_ptr<Worker> getWorker    ();
+        void reset                      ();
+        /*
+         * Method for building new worker:
+         * reads him from the input stream
+         */
+        virtual void buildNewWorker     (istream &in) = 0;
 };

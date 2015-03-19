@@ -3,10 +3,11 @@
 
 using namespace std;
 
-/**
- * Represents numbers in view `n = mantissa * 10^(-exponent)'
- **/
-
+/*
+ * Represents numbers in view `n = mantissa * 10^(-exponent)'.
+ * Because it's not good to use standard floating point types
+ * for representing money amount.
+ */
 class Decimal {
 
     private:
