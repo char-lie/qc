@@ -1,6 +1,6 @@
 #pragma once
 #include "WorkerBuilder.h"
-#include "Worker.h"
+#include "../worker/Worker.h"
 #include "WorkerHourBuilder.h"
 #include "WorkerMonthBuilder.h"
 

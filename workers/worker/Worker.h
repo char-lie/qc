@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Decimal.h"
+#include "../utils/Decimal.h"
 #include <string>
 
 class Worker {

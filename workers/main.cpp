@@ -1,7 +1,5 @@
 #include <iostream>
-#include "Worker.h"
-#include "WorkerHour.h"
-#include "WorkerDirector.h"
+#include "builder/WorkerDirector.h"
 
 using namespace std;
 

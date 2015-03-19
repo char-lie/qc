@@ -1,5 +1,5 @@
 #pragma once
-#include "Worker.h"
+#include "../worker/Worker.h"
 
 class WorkerBuilder {
     protected:

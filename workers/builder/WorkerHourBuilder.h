@@ -1,5 +1,5 @@
 #pragma once
-#include "WorkerHour.h"
+#include "../worker/WorkerHour.h"
 #include "WorkerBuilder.h"
 
 class WorkerHourBuilder : public WorkerBuilder {
